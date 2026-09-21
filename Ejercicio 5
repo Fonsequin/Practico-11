@@ -1,0 +1,106 @@
+#include <iostream>
+using namespace std;
+
+class Vehiculo
+{
+    protected:
+        char marca[40];
+        char modelo[40];
+        int año;
+    public:
+        Vehiculo()
+        {
+            cargar();
+        }
+        void cargar()
+        {
+            cout << "Ingrese la marca: ";
+            cin.getline(marca, 40);
+            cout << "Ingrese el modelo: ";
+            cin.getline(modelo, 40);
+            cout << "Ingrese el año: ";
+            cin >> año;
+            cin.ignore();
+        }
+
+        void imprimir()
+        {
+            cout << "Marca: " << endl;
+            cout << "Modelo: " << endl
+            cout << "Año: " << endl
+        }
+};
+class Auto : public Vehiculo
+{
+    private:
+        int puertas;
+    public:
+        Auto() : Vehiculo()
+        {
+            cout << "Ingrese la cantidad de puertas: ";
+            cin >> puertas;
+            cin.ignore();
+            cout << endl;
+        }
+        void imprimir()
+        {
+            Vehiculo::imprimir();
+            cout << "Cantidad de puertas: " << puertas << endl;
+        }
+};
+class Moto : public Vehiculo
+{
+    private:
+        int cilindrada;
+    public:
+        Moto() : Vehiculo()
+        {
+            cout << "Ingrese la cilindrada de la moto: ";
+            cin >> cilindrada;
+            cin.ignore();
+            cout << endl;
+        }
+
+        void imprimir()
+        {
+            Vehiculo::imprimir();
+            cout << "Cilindrada: " << cilindrada << " cc" << endl;
+        }
+};
+class Camion : public Vehiculo
+{
+    private:
+        int capacidadCarga;
+    public:
+        Camion() : Vehiculo()
+        {
+            cout << "Ingrese la capacidad de carga (en kg): ";
+            cin >> capacidadCarga;
+            cin.ignore();
+            cout << endl;
+        }
+
+        void imprimir()
+        {
+            Vehiculo::imprimir();
+            cout << "Capacidad de carga: " << capacidadCarga << " kg" << endl;
+        }
+};
+
+int main()
+{
+    cout << "Ingrese los datos del auto 1" << endl;
+    Auto auto1;
+    cout << "Ingrese los datos de la moto 1" << endl;
+    Moto moto1;
+    cout << "Ingrese los datos del camion 1" << endl;
+    Camion camion1;
+    cout << endl << endl;
+    cout << endl << "Auto:" << endl;
+    auto1.imprimir();
+    cout << endl << "Moto:" << endl;
+    moto1.imprimir();
+    cout << endl << "Camion:" << endl;
+    camion1.imprimir();
+    return 0;
+}
