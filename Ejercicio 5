@@ -26,8 +26,8 @@ class Vehiculo
         void imprimir()
         {
             cout << "Marca: " << endl;
-            cout << "Modelo: " << endl
-            cout << "Año: " << endl
+            cout << "Modelo: " << endl;
+            cout << "Año: " << endl;
         }
 };
 class Auto : public Vehiculo
