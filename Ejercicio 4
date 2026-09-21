@@ -1,0 +1,139 @@
+#include <iostream>
+using namespace std;
+// << >>
+class Figura
+{
+    protected:
+    char color[15];
+    char posicion[16];
+    int base;
+    int altura;
+    public:
+    Figura(){
+        cargar();
+    }
+    
+    void cargar()
+    {
+        cout << "Ingrese el color de la figura: ";
+        cin >> color;
+        cout << "Ingrese la posicion de la figura: ";
+        cin >> posicion;
+        cout << "Ingrese la altura de la figura: ";
+        cin >> altura;
+        cout << "Ingrese la medida de la base de la figura: ";
+        cin >> base;
+    }
+    
+    void imprimir()
+    {
+        cout << "El color de la figura es: " << color << endl;
+        cout << "La posicion de la figura es: " << posicion << endl;
+        cout << "La altura de la figura es: " << altura << endl;
+        cout << "La base de la figura es: " << altura << endl;
+    }
+};
+
+class Circulo : public Figura
+{
+    private:
+    float area;
+    float perimetro;
+    float radio;
+    public:
+    Circulo() : Figura()
+    {
+        cout << "Ingrese el radio del circulo: ";
+        cin >> posicion;
+    }
+    float calcularArea()
+    {
+        area = 3,14 * radio * radio;
+        return area;
+    }
+    float calcularPerimetro()
+    {
+        perimetro = 2 * 3,14 * radio;
+        return perimetro;
+    }
+    void imprimir()
+    {
+        cout << endl << "Circulo 1:" << endl;
+        Figura::imprimir(); 
+        cout << "El radio es: " << area << endl;
+        cout << "El area es: " << area << endl;
+        cout << "El perimetro es " << perimetro << endl;
+    }
+};
+
+class Rectangulo : public Figura
+{
+    private:
+    float area;
+    float perimetro;
+    public:
+    float calcularArea()
+    {
+        area = base * altura;
+        return area;
+    }
+    float calcularPerimetro()
+    {
+        perimetro = base * 2 + altura * 2;
+        return perimetro;
+    }
+    void imprimir()
+    {
+        cout << endl << "Rectangulo 1:" << endl;
+        Figura::imprimir(); 
+        cout << "El area es: " << area << endl;
+        cout << "El perimetro es " << perimetro << endl;
+    }
+};
+
+class Triangulo : public Figura
+{
+    private:
+    float area;
+    float perimetro;
+    public:
+    float calcularArea()
+    {
+        area = base * altura / 2;
+        return area;
+    }
+    float calcularPerimetro()
+    {
+        perimetro = base * 3;
+        return perimetro;
+    }
+    void imprimir()
+    {
+        cout << endl << "Triangulo 1:" << endl;
+        Figura::imprimir(); 
+        cout << "El area es: " << area << endl;
+        cout << "El perimetro es " << perimetro << endl;
+    }
+};
+
+int main()
+{
+    cout << endl << "Circulo 1:" << endl;
+    Circulo circulo;
+    circulo.calcularArea();
+    circulo.calcularPerimetro();
+    circulo.imprimir();
+    
+    cout << endl << "Rectangulo 1:" << endl;
+    Rectangulo rectangulo;
+    rectangulo.calcularArea();
+    rectangulo.calcularPerimetro();
+    rectangulo.imprimir();
+    
+    cout << endl << "Triangulo 1:" << endl;
+    Triangulo triangulo;
+    triangulo.calcularArea();
+    triangulo.calcularPerimetro();
+    triangulo.imprimir();
+    return 0;
+}
