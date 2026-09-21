@@ -1,0 +1,94 @@
+#include <iostream>
+using namespace std;
+ //< >
+class Animal
+{
+    protected:
+    char nombre[40];
+    public:
+    Animal()
+    {
+        cargar();
+    }
+    void cargar(){
+        cout << "Ingrese el nombre del animal: ";
+        cin.getline(nombre,40);
+        cout << endl;
+    }
+    void hacerRuido()
+    {
+        cout << "ruido";
+    }
+    void comer()
+    {
+        cout << "comer";
+    }
+    void imprimir()
+    {
+        cout << "El nombre del animal es: " << nombre << endl;
+    }
+};
+
+class Perro : public Animal
+{
+    public:
+    void hacerRuido()
+    {
+        cout << "Este animal hace woof" << endl;
+    }
+    void comer()
+    {
+        cout << "Este animal come todo tipo de carnes" << endl;
+    }
+};
+
+class Gato : public Animal
+{
+    public:
+    void hacerRuido()
+    {
+        cout << "Este animal hace miau" << endl;
+    }
+    void comer()
+    {
+        cout << "Este animal come todo tipo de carnes" << endl;
+    }
+};
+
+class Pajaro : public Animal
+{
+    public:
+    void hacerRuido()
+    {
+        cout << "Este animal hace pio" << endl;
+    }
+    void comer()
+    {
+        cout << "Este animal come semillas y migas de pan" << endl;
+    }
+};
+
+int main()
+{
+    cout << "Perro numero 1" << endl;
+    Perro perro1;
+    cout << "Gato numero 1" << endl;
+    Gato gato1;
+    cout << "Pajaro numero 1" << endl;
+    Pajaro pajaro1;
+    
+    cout << endl << "Perro numero 1" << endl;
+    perro1.imprimir();
+    perro1.hacerRuido();
+    perro1.comer();
+    
+    cout << endl << "Gato numero 1" << endl;
+    gato1.imprimir();
+    gato1.hacerRuido();
+    gato1.comer();
+    
+    cout << endl << "Pajaro numero 1" << endl;
+    pajaro1.imprimir();
+    pajaro1.hacerRuido();
+    pajaro1.comer();
+}
